@@ -1,0 +1,50 @@
+header {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 128, 0, 0.54);
+    font-size: 25px;
+    height: 10%;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 0px 20px;
+    
+  }
+  
+  .header-text-container {
+    display: inherit;
+    width: calc(15% - 40px);
+    margin-right: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+  }
+  
+  .header-container {
+    display: flex;
+    margin-left: auto;
+  
+    img {
+      margin-right: 20px;
+    }
+  }
+
+  // Медіазапит для моніторів
+@media (min-width: 1921px) {
+  /* Стилі для моніторів тут */
+}
+
+// Медіазапит для ноутбуків та більших планшетів
+@media (max-width: 1920px) {
+  /* Стилі для ноутбуків та більших планшетів тут */
+  
+}
+
+// Медіазапит для планшетів
+@media (max-width: 1024px) {
+  /* Стилі для планшетів тут */
+}
+
+// Медіазапит для мобільних телефонів
+@media (max-width: 767px) {
+  /* Стилі для мобільних телефонів тут */
+}

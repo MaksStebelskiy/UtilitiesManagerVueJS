@@ -1,0 +1,144 @@
+.info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 40px;
+    
+
+   
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin-right: 20%;
+    width: 60%;
+    h3 {
+        margin: 0;
+    }
+    h1 {
+        margin-top: 0;
+    }
+    button {
+        height: 50px;
+        width: 250px;
+        border-radius: 20px;
+        border: none;
+        background: rgba(0, 128, 0, 0.54);
+        color: #2c3e50;
+        font-size: 20px;
+        margin: 20px 0px;
+    }
+}
+.logo-container {
+    width: 40%;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+
+    .card {
+        background: #D9D9D9;
+        width: 285px;
+        height: 215px;
+        border-radius: 20px;
+        margin: 0px 20px;
+    }
+
+}
+
+
+@media (min-width: 1200px) and (max-width: 1920px) {
+    /* Ваші стилі для екранів шириною між 1200px і 1920px тут */
+    .info-container {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
+        
+        .text-container {
+            margin-right: 10%;
+            width: 100%;
+            text-align: left;
+
+            button {
+                width: 50%;
+            }
+        }
+        .logo-container {
+            width: 100%;
+        }
+    }
+
+    .card-container {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .card {
+            margin: 10px;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .info-container {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        
+        .text-container {
+            margin-right: 0;
+            margin: 40px 0px 40px 0px;
+            width: 100%;
+            text-align: center;
+            align-items: center;
+
+            button {
+                width: 50%;
+            }
+        }
+        .logo-container {
+            width: 100%;
+        }
+    }
+
+    .card-container {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .card {
+            margin: 10px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .info-container {
+        margin-bottom: 10px;
+        
+        .text-container {
+            button {
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .card-container {
+        .card {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .info-container {
+        .text-container {
+            h1 {
+                font-size: 24px;
+            }
+        }
+    }
+}
