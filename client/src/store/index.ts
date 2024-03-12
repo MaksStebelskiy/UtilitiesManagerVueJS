@@ -1,9 +1,13 @@
 import { createStore } from "vuex";
 
+
+
 export default createStore({
   state: {
     isAuthenticated: localStorage.getItem("user") !== null,
-    user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!) : null,
+    user: localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user")!)
+      : null,
     selectedMenuItem: localStorage.getItem("selectedMenuItem") || "home", // Ініціалізуємо значення стану з local storage або встановлюємо значення за замовчуванням
   },
   getters: {},

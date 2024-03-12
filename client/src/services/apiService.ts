@@ -21,6 +21,21 @@ export const ApiService = {
         }
     },
 
+    async postUsersRegister(username: string, login: string, password: string) {
+        try {
+          const response = await apiClient.post('/users', {
+            username,
+            login,
+            password
+          });
+          return response.data;
+        }
+        catch(error) {
+          console.error('Error registering user:', error);
+          throw error;
+        }
+      },
+
     async getAllExpense() {
         try {
             const response = await apiClient.get('/expenses');

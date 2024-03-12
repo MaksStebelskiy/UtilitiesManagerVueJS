@@ -1,5 +1,11 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
+import { useStore } from 'vuex';
+
+interface User {
+  id: number;
+  username: string;
+}
 
 @Options({
   props: {
@@ -7,28 +13,37 @@ import { Options, Vue } from 'vue-class-component';
   }
 })
 export default class Header extends Vue {
-  msg!: string
+  msg!: string;
+  user: User | null = null;
+
+  mounted() {
+    const store = useStore();
+    this.user = store.state.user; // Зберігаємо значення user у локальну змінну під час монтажу
+  }
+
+  get currentUser(): User | null {
+    return this.user;
+  }
+
 }
 </script>
 
 <template>
-  <div class="cont">
-    <header class="header">
+  <header>
 
-    <div class="header-text-container">
+    <div class="header-logo-container">
       <img src="@/assets/Logo64.png" alt="">
       <h4>Utilities<br>Manager</h4>
 
     </div>
 
-    <div class="header-container">
+    <div class="header-text-container">
+      <h5>{{ currentUser ? currentUser.username : 'Anonymous' }}</h5>
       <img src="@/assets/User32.png" alt="">
-
     </div>
 
-    </header>
-  </div>
- </template>
+  </header>
+</template>
 
 <style scoped lang="scss">
 @import 'Header';

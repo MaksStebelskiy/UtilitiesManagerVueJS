@@ -17,6 +17,7 @@ export default class HomeView extends Vue {
   mounted() {
     const store = useStore();
     console.log('Authenticated:', store.state.isAuthenticated);
+    console.log('User', store.state.user);
 
     if (!store.state.isAuthenticated) {
       this.$router.push('/login');
