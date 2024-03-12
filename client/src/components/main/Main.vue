@@ -6,6 +6,7 @@ import Home from './content/home/Home.vue';
 import Expenses from './content/expenses/Expenses.vue';
 import Management from './content/management/Management.vue';
 import Payments from './content/payments/Payments.vue';
+import store from '../../store/index';
 
 @Options({
   props: {
@@ -21,7 +22,11 @@ import Payments from './content/payments/Payments.vue';
 export default class Main extends Vue {
   msg!: string;
   selectedMenuItem!: string;
+  $store!: Store<{ selectedMenuItem: string }>;
   
+  mounted() {
+    this.$store.commit('setSelectedMenuItem', this.selectedMenuItem); // При монтуванні компоненти оновлюємо стан, щоб відображення було коректним при перезавантаженні сторінки
+  }
   
 
   get currentComponent() {
@@ -48,14 +53,12 @@ export default class Main extends Vue {
   </main>
 </template>
 
-
-
 <style scoped lang="scss">
 main {
   background: #e9e9e9;
-  width: 90%;
   border-radius: 20px;
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;

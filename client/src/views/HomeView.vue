@@ -3,6 +3,7 @@ import { Options, Vue } from 'vue-class-component';
 import Header from '@/components/header/Header.vue';
 import Aside from '@/components/aside/Aside.vue';
 import Main from '@/components/main/Main.vue';
+import { useStore } from 'vuex';
 
 @Options({
   components: {
@@ -11,7 +12,18 @@ import Main from '@/components/main/Main.vue';
     Main,
   },
 })
-export default class HomeView extends Vue { }
+export default class HomeView extends Vue {
+
+  mounted() {
+    const store = useStore();
+    console.log('Authenticated:', store.state.isAuthenticated);
+
+    if (!store.state.isAuthenticated) {
+      this.$router.push('/login');
+    }
+  }
+
+}
 </script>
 
 <template>
@@ -28,15 +40,6 @@ export default class HomeView extends Vue { }
 </template>
 
 <style lang="scss">
-
-@mixin shadow {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-Header, Main, Aside {
-  @include shadow;
-}
-
 .container {
   display: flex;
   flex: 1;

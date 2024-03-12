@@ -8,7 +8,19 @@ const apiClient = axios.create({
 });
 
 export const ApiService = {
-    //Отримати витрати з сервера
+    
+
+    async getUsersAuth() {
+        try {
+            const response = await apiClient.get('/users');
+            return response.data;
+        }
+        catch(error) {
+            console.error('Error fetching users:', error);
+            throw error;
+        }
+    },
+
     async getAllExpense() {
         try {
             const response = await apiClient.get('/expenses');

@@ -15,6 +15,12 @@ export default class Aside extends Vue {
     this.$store.commit('setSelectedMenuItem', menuItem);
   }
 
+  logout() {
+    this.$store.commit('logout');
+    localStorage.removeItem('isAuthenticated');
+    this.$router.push('/login');
+  }
+
 }
 </script>
 
@@ -38,10 +44,12 @@ export default class Aside extends Vue {
         <img src="@/assets/Support32.png" alt="Підтримка" />
         Підтримка
       </button>
-      <button class="aside-end-button">
+
+      <button class="aside-end-button" @click="logout">
         <img src="@/assets/Logout32.png" alt="Вихід" />
         Вихід
       </button>
+
     </div>
 
   </aside>

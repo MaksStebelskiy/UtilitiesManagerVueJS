@@ -12,7 +12,8 @@ export default class Header extends Vue {
 </script>
 
 <template>
-  <header>
+  <div class="cont">
+    <header class="header">
 
     <div class="header-text-container">
       <img src="@/assets/Logo64.png" alt="">
@@ -25,8 +26,9 @@ export default class Header extends Vue {
 
     </div>
 
-  </header>
-</template>
+    </header>
+  </div>
+ </template>
 
 <style scoped lang="scss">
 @import 'Header';
