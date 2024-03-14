@@ -6,6 +6,8 @@ import Home from './content/home/Home.vue';
 import Expenses from './content/expenses/Expenses.vue';
 import Management from './content/management/Management.vue';
 import Payments from './content/payments/Payments.vue';
+import Settings from './content/settings/Settings.vue';
+import Support from './content/support/Support.vue';
 import store from '../../store/index';
 
 @Options({
@@ -39,6 +41,10 @@ export default class Main extends Vue {
         return Management;
       case 'payments':
         return Payments;
+      case 'settings':
+        return Settings;
+      case 'support':
+        return Support;
       default:
         return Home;
     }

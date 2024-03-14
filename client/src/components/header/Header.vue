@@ -18,7 +18,7 @@ export default class Header extends Vue {
 
   mounted() {
     const store = useStore();
-    this.user = store.state.user; // Зберігаємо значення user у локальну змінну під час монтажу
+    this.user = store.state.user;
   }
 
   get currentUser(): User | null {
@@ -33,7 +33,7 @@ export default class Header extends Vue {
 
     <div class="header-logo-container">
       <img src="@/assets/Logo64.png" alt="">
-      <h4>Utilities<br>Manager</h4>
+      <h5>Utilities<br>Manager</h5>
 
     </div>
 

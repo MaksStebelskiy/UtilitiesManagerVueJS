@@ -11,15 +11,15 @@ import { useStore } from 'vuex';
 
 export default class RegisterView extends Vue {
   store = useStore();
-  name: string = '';
+  username: string = '';
   login: string = '';
   password: string = '';
   confirmPassword: string = '';
-  nameIsValid: boolean = false;
+  usernameIsValid: boolean = false;
   loginIsValid: boolean = false;
   passwordIsValid: boolean = false;
   confirmPasswordIsValid: boolean = false;
-  nameIsInvalid: boolean = false;
+  usernameIsInvalid: boolean = false;
   loginIsInvalid: boolean = false;
   passwordIsInvalid: boolean = false;
   confirmPasswordIsInvalid: boolean = false;
@@ -31,8 +31,8 @@ export default class RegisterView extends Vue {
   }
 
   validateName() {
-    this.nameIsValid = this.validateInput(this.name);
-    this.nameIsInvalid = !this.nameIsValid;
+    this.usernameIsValid = this.validateInput(this.username);
+    this.usernameIsInvalid = !this.usernameIsValid;
     this.updateFormValidity();
   }
 
@@ -45,7 +45,7 @@ export default class RegisterView extends Vue {
   validatePassword() {
     this.passwordIsValid = this.validateInput(this.password);
     this.passwordIsInvalid = !this.passwordIsValid;
-    this.validateConfirmPassword(); // Додаткова перевірка паролів при зміні пароля
+    this.validateConfirmPassword();
     this.updateFormValidity();
   }
 
@@ -56,9 +56,9 @@ export default class RegisterView extends Vue {
   }
 
   clearValidation() {
-    if (!this.name.trim()) {
-      this.nameIsValid = false;
-      this.nameIsInvalid = false;
+    if (!this.username.trim()) {
+      this.usernameIsValid = false;
+      this.usernameIsInvalid = false;
     }
     if (!this.login.trim()) {
       this.loginIsValid = false;
@@ -77,22 +77,22 @@ export default class RegisterView extends Vue {
   }
 
   updateFormValidity() {
-    this.isValidForm = this.nameIsValid && this.loginIsValid && this.passwordIsValid && this.confirmPasswordIsValid;
+    this.isValidForm = this.usernameIsValid && this.loginIsValid && this.passwordIsValid && this.confirmPasswordIsValid;
   }
 
   register() {
     if (this.isValidForm) {
-      ApiService.postUsersRegister(this.name, this.login, this.password)
+      ApiService.postUsersRegister(this.username, this.login, this.password)
         .then(response => {
-          // Обробка успішної відповіді від сервера
           console.log('User registered successfully', response);
-          const user = { username: this.name, login: this.login };
-          this.store.commit('login', user); // Передача користувача до Store
+          const user = { username: this.username, login: this.login };
+          this.store.commit('login', user);
           this.$router.push('/');
         })
         .catch(error => {
-          // Обробка помилки від сервера
-          console.error('Error registering user:', error);
+          if (error.response && error.response.status === 409) {
+            alert('Користувач з такими даними вже існує');
+          }
         });
     }
   }
@@ -112,8 +112,8 @@ export default class RegisterView extends Vue {
     <div class="form-container">
       <h2>Реєстрація</h2>
 
-      <input type="text" placeholder="Ім'я" v-model="name" @input="validateName" @change="clearValidation"
-        :class="{ 'valid': nameIsValid, 'invalid': nameIsInvalid }">
+      <input type="text" placeholder="Ім'я" v-model="username" @input="validateName" @change="clearValidation"
+        :class="{ 'valid': usernameIsValid, 'invalid': usernameIsInvalid }">
       <input type="text" placeholder="Логін" v-model="login" @input="validateLogin" @change="clearValidation"
         :class="{ 'valid': loginIsValid, 'invalid': loginIsInvalid }">
       <input type="password" placeholder="Пароль" v-model="password" @input="validatePassword" @change="clearValidation"

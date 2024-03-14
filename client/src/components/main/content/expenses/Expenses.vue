@@ -29,6 +29,9 @@ export default class Expenses extends Vue {
 
   <select id="year">
     <option value="">Рік</option>
+    <option value="">Рік</option>
+    <option value="">Рік</option>
+    <option value="">Рік</option>
   </select>
 
   <select id="month">
@@ -50,15 +53,6 @@ export default class Expenses extends Vue {
 
 <style scoped lang="scss">
 
-select {
-  font-size: 25px;
-  background: rgba(0, 128, 0, 0.54);
-  border: none;
-  border-radius: 20px;
-  padding: 5px 20px;
-
-  
-
-}
+@import 'Expenses';
 
 </style>
