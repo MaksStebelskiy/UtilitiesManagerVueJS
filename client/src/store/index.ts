@@ -1,14 +1,15 @@
 import { createStore } from "vuex";
 
-
-
 export default createStore({
   state: {
     isAuthenticated: localStorage.getItem("user") !== null,
     user: localStorage.getItem("user")
       ? JSON.parse(localStorage.getItem("user")!)
       : null,
-    selectedMenuItem: localStorage.getItem("selectedMenuItem") || "home", // Ініціалізуємо значення стану з local storage або встановлюємо значення за замовчуванням
+    selectedMenuItem: localStorage.getItem("selectedMenuItem") || "home",
+    currentPaginationPage: parseInt(
+      localStorage.getItem("currentPaginationPage") || "1"
+    ),
   },
   getters: {},
   mutations: {
@@ -26,7 +27,11 @@ export default createStore({
 
     setSelectedMenuItem(state, menuItem) {
       state.selectedMenuItem = menuItem;
-      localStorage.setItem("selectedMenuItem", menuItem); // Зберігаємо значення в local storage при зміні
+      localStorage.setItem("selectedMenuItem", menuItem);
+    },
+    setCurrentPaginationPage(state, page) {
+      state.currentPaginationPage = page;
+      localStorage.setItem("currentPaginationPage", page.toString());
     },
   },
   actions: {},

@@ -1,0 +1,84 @@
+select {
+    font-size: 20px;
+    background: rgba(0, 128, 0, 0.50);
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+
+
+.data-container {
+    flex: 1; // Займає доступну простір
+    width: 100%;
+  }
+
+
+.title-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 0px;
+}
+
+
+.el-pagination {
+    --el-color-primary: #00800080;
+    --el-pagination-button-height: 40px;
+    --el-pagination-button-width: 50px;
+    --el-pagination-border-radius: 20px;
+  }
+
+.el-select {
+  --el-color-primary: #00800080;
+  --el-font-size-base: 20px;
+}
+
+
+
+.expense-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+
+}
+
+.expense-card {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  
+  width: 200px; /* Змініть розмір за потребою */
+  @include shadow;
+}
+
+.card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: 20px; /* визначаємо радіус для верхнього кута */
+  border-top-right-radius: 20px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.utility-name {
+  margin: 0;
+}
+
+.amount {
+  margin: 0;
+  font-weight: bold;
+}

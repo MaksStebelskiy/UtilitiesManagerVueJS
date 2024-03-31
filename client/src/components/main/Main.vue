@@ -68,7 +68,8 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0px 20px;
+  padding: 20px 20px;
+  
 }
 
 a {

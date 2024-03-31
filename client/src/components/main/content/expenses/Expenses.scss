@@ -1,15 +1,118 @@
 select {
-    font-size: 25px;
-    background: rgba(0, 128, 0, 0.54);
-    border: none;
-    border-radius: 20px;
-    padding: 5px 20px;
-
-
+  font-size: 20px;
+  background: rgba(0, 128, 0, 0.50);
+  border: none;
+  border-radius: 20px;
+  padding: 5px 20px;
 }
 
-option {
-    border: none;
-    border-radius: 5px;
+
+.data-container {
+  flex: 1;
+  width: 100%;
+}
+
+
+.title-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 5px 0px;
+  border-radius: 20px;
+  background: #D9D9D9;
+  @include shadow;
+}
+
+
+.el-pagination {
+  --el-color-primary: #00800080;
+  --el-pagination-button-height: 40px;
+  --el-pagination-button-width: 50px;
+  --el-pagination-border-radius: 20px;
+}
+
+.el-select {
+  --el-color-primary: #00800080;
+  --el-font-size-base: 20px;
+  --el-border-radius-base: 10px;
+}
+
+.el-select-dropdown__item.is-selected {
+  color: #00800080;
+  font-weight: 700;
+}
+
+.expense-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+.expense-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+  width: 220px;
+  transition: background-color 0.3s, transform 0.3s;
+  @include shadow;
+
+  &:hover {
     
+    transform: translateY(-8px);
+    .card-footer {
+      background: rgba(0, 128, 0, 0.50);
+    }
+  }
 }
+
+.card-header {
+  background: rgba(0, 128, 0, 0.50);
+  padding: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-footer {
+  background: #D9D9D9;
+  padding: 10px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  border-radius: 10px; 
+  background: white;
+  padding: 5px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  filter: blur(0.20px);
+}
+
+.utility-name {
+  margin: 0;
+}
+
+.amount {
+  margin: 0;
+  font-weight: 600;
+}
+

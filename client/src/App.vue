@@ -1,5 +1,6 @@
 <script>
 
+
 export default {
   name: 'App',
   components: {
@@ -34,6 +35,5 @@ Aside {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-
 }
 </style>

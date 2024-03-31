@@ -1,17 +1,21 @@
 <template>
-    <p>Management</p>
-  </template>
-  
-  
-  <script lang="ts">
-  import { Options, Vue } from 'vue-class-component';
-  
-  @Options({
-    props: {
-      msg: String
-    }
-  })
-  export default class Management extends Vue {
-    msg!: string
+  <p>Management</p>
+  <Chart />
+</template>
+
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
+import Chart from './Chart.component.vue'; 
+
+@Options({
+  components: {
+    Chart 
+  },
+  props: {
+    msg: String
   }
-  </script>
+})
+export default class Management extends Vue {
+  
+}
+</script>
